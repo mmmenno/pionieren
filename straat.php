@@ -153,7 +153,7 @@ $geojson = json_encode(wkt2geojson($firstrow['wkt']['value']));
 
 
 			
-			<?
+			<?php
 
 			echo '<div id="pics">';
 			foreach ($data['results']['bindings'] as $row) {

@@ -190,7 +190,7 @@ foreach ($data['results']['bindings'] as $row) {
 	<h1>Amsterdams Pionieren <?= $title ?>'s</h1>
 
 	<p>
-		Hieronder het antwoord van <a href="http://blogadamlink.nl/ontwikkelaar/lod-van-amsterdamse-erfgoedcollecties/">AdamNet</a> op de vraag 'geef alle afbeeldingen van straten die gemaakt zijn binnen twee jaar na aanleg van de straat in de jaren <?= $title ?>'. We hopen daarmee een beeld van pionierend Amsterdam te kunnen laten zien, maar ook de mogelijkheden van het combineren van datasets (het <a href="https://adamlink.nl/geo/streets/list">stratenregister</a> met beginjaren van straten en de Amsterdamse collecties in AdamNet). Klik op de straatnaam voor een kaartje en meer foto's.
+		Hieronder het antwoord van <a href="http://blogadamlink.nl/ontwikkelaar/lod-van-amsterdamse-erfgoedcollecties/">AdamNet</a> op de vraag 'geef alle afbeeldingen van straten die gemaakt zijn binnen twee jaar na aanleg van die straat'. We hopen daarmee een beeld van pionierend Amsterdam te kunnen laten zien, maar ook de mogelijkheden van het combineren van datasets (het <a href="https://adamlink.nl/geo/streets/list">stratenregister</a> met beginjaren van straten en de Amsterdamse collecties in AdamNet). Klik op de straatnaam voor een kaartje en meer foto's.
 	</p>
 
 	<div class="container-fluid">
@@ -219,7 +219,7 @@ foreach ($data['results']['bindings'] as $row) {
 	
 </div>
 
-<a target="_blank" href="<?= $querylink ?>">SPARQL it yourself &gt;</a>
+<a href="<?= $querylink ?>">SPARQL it yourself &gt;</a>
 
 
 
