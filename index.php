@@ -198,19 +198,19 @@ foreach ($data['results']['bindings'] as $row) {
 			<div class="col-md-4">
 				<?php foreach ($col1 as $cho) { ?>
 					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
-					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
+					<h2><a href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 			<div class="col-md-4">
 				<?php foreach ($col2 as $cho) { ?>
 					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
-					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
+					<h2><a href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 			<div class="col-md-4">
 				<?php foreach ($col3 as $cho) { ?>
 					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
-					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
+					<h2><a href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 		</div>
@@ -219,7 +219,7 @@ foreach ($data['results']['bindings'] as $row) {
 	
 </div>
 
-<a href="<?= $querylink ?>">SPARQL it yourself &gt;</a>
+<a target="_blank" href="<?= $querylink ?>">SPARQL it yourself &gt;</a>
 
 
 
