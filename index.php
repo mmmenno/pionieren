@@ -47,6 +47,8 @@ LIMIT 60
 
 $url = "https://api.data.adamlink.nl/datasets/AdamNet/all/services/endpoint/sparql?default-graph-uri=&query=" . urlencode($sparqlquery) . "&format=application%2Fsparql-results%2Bjson&timeout=120000&debug=on";
 
+$querylink = "https://data.adamlink.nl/AdamNet/all/services/endpoint#query=" . urlencode($sparqlquery) . "&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.adamlink.nl%2F_api%2Fdatasets%2Fmenno%2Falles%2Fservices%2Falles%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table";
+
 $json = file_get_contents($url);
 
 $data = json_decode($json,true);
@@ -64,6 +66,7 @@ foreach ($data['results']['bindings'] as $row) {
 	$i++;
 	if($i%3==0){
 		$col3[] = array(
+					"street" => $row['street']['value'],
 					"label" => $row['streetname']['value'],
 					"img" => $row['img']['value'],
 					"link" => $row['cho']['value'],
@@ -71,6 +74,7 @@ foreach ($data['results']['bindings'] as $row) {
 					);
 	}elseif($i%2==0){
 		$col2[] = array(
+					"street" => $row['street']['value'],
 					"label" => $row['streetname']['value'],
 					"img" => $row['img']['value'],
 					"link" => $row['cho']['value'],
@@ -78,6 +82,7 @@ foreach ($data['results']['bindings'] as $row) {
 					);
 	}else{
 		$col1[] = array(
+					"street" => $row['street']['value'],
 					"label" => $row['streetname']['value'],
 					"img" => $row['img']['value'],
 					"link" => $row['cho']['value'],
@@ -129,7 +134,7 @@ foreach ($data['results']['bindings'] as $row) {
 			margin-top: 30px;
 		}
 		a{
-			color: #000;
+			color: #9E6B04;
 			text-decoration: none;
 		}
 		a:hover{
@@ -184,24 +189,28 @@ foreach ($data['results']['bindings'] as $row) {
 <div>
 	<h1>Amsterdams Pionieren <?= $title ?>'s</h1>
 
+	<p>
+		Hieronder het antwoord van <a href="http://blogadamlink.nl/ontwikkelaar/lod-van-amsterdamse-erfgoedcollecties/">AdamNet</a> op de vraag 'geef alle afbeeldingen van straten die gemaakt zijn binnen twee jaar na aanleg van de straat in de jaren <?= $title ?>'. We hopen daarmee een beeld van pionierend Amsterdam te kunnen laten zien, maar ook de mogelijkheden van het combineren van datasets (het <a href="https://adamlink.nl/geo/streets/list">stratenregister</a> met beginjaren van straten en de Amsterdamse collecties in AdamNet). Klik op de straatnaam voor een kaartje en meer foto's.
+	</p>
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
 				<?php foreach ($col1 as $cho) { ?>
-					<img src="<?= $cho['img'] ?>" />
-					<h2><a target="_blank" href="<?= $cho['link'] ?>"><?= $cho['label'] ?> <?= $cho['year'] ?></a></h2>
+					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
+					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 			<div class="col-md-4">
 				<?php foreach ($col2 as $cho) { ?>
-					<img src="<?= $cho['img'] ?>" />
-					<h2><a target="_blank" href="<?= $cho['link'] ?>"><?= $cho['label'] ?> <?= $cho['year'] ?></a></h2>
+					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
+					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 			<div class="col-md-4">
 				<?php foreach ($col3 as $cho) { ?>
-					<img src="<?= $cho['img'] ?>" />
-					<h2><a target="_blank" href="<?= $cho['link'] ?>"><?= $cho['label'] ?> <?= $cho['year'] ?></a></h2>
+					<a target="_blank" href="<?= $cho['link'] ?>"><img src="<?= $cho['img'] ?>" /></a>
+					<h2><a target="_blank" href="straat.php?uri=<?= $cho['street'] ?>"><?= $cho['label'] ?></a> <?= $cho['year'] ?></h2>
 				<?php } ?>
 			</div>
 		</div>
@@ -210,7 +219,7 @@ foreach ($data['results']['bindings'] as $row) {
 	
 </div>
 
-
+<a target="_blank" href="<?= $querylink ?>">SPARQL it yourself &gt;</a>
 
 
 
