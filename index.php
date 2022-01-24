@@ -62,7 +62,23 @@ $opts = [
 $context = stream_context_create($opts);
 
 // Open the file using the HTTP headers set above
-$json = file_get_contents($url, false, $context);
+//$json = file_get_contents($url, false, $context);
+
+$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL,$url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+	curl_setopt($ch,CURLOPT_USERAGENT,'RotterdamsPubliek');
+	$headers = [
+	    'Accept: application/sparql-results+json'
+	];
+
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	$json = curl_exec ($ch);
+	curl_close ($ch);
+
+	//var_dump($response);
+
 
 echo $json;
 die;
