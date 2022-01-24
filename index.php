@@ -62,8 +62,9 @@ $opts = [
 $context = stream_context_create($opts);
 
 // Open the file using the HTTP headers set above
-//$json = file_get_contents($url, false, $context);
+$json = file_get_contents($url, false, $context);
 
+/* onderstaand alternatief werkt ook niet, op de server
 $ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL,$url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -82,6 +83,8 @@ $ch = curl_init();
 
 echo $json;
 die;
+
+*/
 
 $data = json_decode($json,true);
 
