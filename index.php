@@ -46,6 +46,7 @@ LIMIT 60
 //echo $sparqlquery;
 
 $url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
+//$url = "https://api.druid.datalegend.net/datasets/AdamNet/all/services/endpoint/sparql"
 
 $querylink = "https://druid.datalegend.net/AdamNet/all/sparql/endpoint#query=" . urlencode($sparqlquery) . "&endpoint=https%3A%2F%2Fdruid.datalegend.net%2F_api%2Fdatasets%2FAdamNet%2Fall%2Fservices%2Fendpoint%2Fsparql&requestMethod=POST&outputFormat=table";
 
@@ -108,7 +109,7 @@ foreach ($data['results']['bindings'] as $row) {
 <html>
 <head>
 	
-	<title>Amsterdams Pionieren</title>
+	<title>Amsterdams Pionieren!</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
