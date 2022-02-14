@@ -23,6 +23,8 @@ PREFIX void: <http://rdfs.org/ns/void#>
 SELECT DISTINCT ?street ?streetname SAMPLE(?cho) as ?cho SAMPLE(?realchodate) as ?date SAMPLE(?img) as ?img WHERE {
  ?cho foaf:depiction ?img .
  ?cho dc:type ?type .
+  MINUS { ?cho void:inDataset <https://data.adamlink.nl/am/amcollect/> .}
+  MINUS { ?cho void:inDataset <https://data.adamlink.nl/oba/amcat/> .}
  FILTER(?type != \"bouwtekening\"^^xsd:string) .
  ?cho dct:spatial ?street .
  ?street a hg:Street .
