@@ -78,7 +78,7 @@ LIMIT 20
 
 
 
-$url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery);
+$url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
 
 $querylink = "https://druid.datalegend.net/AdamNet/all/sparql/endpoint#query=" . urlencode($sparqlquery) . "&endpoint=https%3A%2F%2Fdruid.datalegend.net%2F_api%2Fdatasets%2FAdamNet%2Fall%2Fservices%2Fendpoint%2Fsparql&requestMethod=POST&outputFormat=table";
 
@@ -96,7 +96,7 @@ $context = stream_context_create($opts);
 // Open the file using the HTTP headers set above
 $json = file_get_contents($url, false, $context);
 
-//echo $url;
+echo $url;
 
 $data = json_decode($json,true);
 
