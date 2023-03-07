@@ -20,7 +20,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX void: <http://rdfs.org/ns/void#>
 
-SELECT DISTINCT ?street ?streetname SAMPLE(?cho) as ?cho SAMPLE(?realchodate) as ?date SAMPLE(?img) as ?img WHERE {
+SELECT DISTINCT ?street ?streetname (SAMPLE(?cho) as ?cho) (SAMPLE(?realchodate) as ?date) (SAMPLE(?img) as ?img) WHERE {
  ?cho foaf:depiction ?img .
  ?cho dc:type ?type .
   MINUS { ?cho void:inDataset <https://data.adamlink.nl/am/amcollect/> .}
