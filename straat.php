@@ -74,7 +74,9 @@ ORDER BY ASC(?start)
 LIMIT 20
 ';
 
-//echo $sparqlquery;
+echo $sparqlquery . "\n\n";
+
+
 
 $url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
 
