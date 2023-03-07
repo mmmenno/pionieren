@@ -54,6 +54,7 @@ function wkt2geojson($wkt){
 }
 
 $sparqlquery = '
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
@@ -73,6 +74,7 @@ ORDER BY ASC(?start)
 LIMIT 20
 ';
 
+//echo $sparqlquery;
 
 $url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
 
