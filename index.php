@@ -55,6 +55,10 @@ $querylink = "https://druid.datalegend.net/AdamNet/all/sparql/endpoint#query=" .
 
 // Druid does not like url parameters, send accept header instead
 $opts = [
+    "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,
+    ),
     "http" => [
         "method" => "GET",
         "header" => "Accept: application/sparql-results+json\r\n"

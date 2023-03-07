@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 function wkt2geojson($wkt){
 	$coordsstart = strpos($wkt,"(");
@@ -81,13 +78,17 @@ LIMIT 20
 
 
 
-$url = "https://api.druid.datalegend.net/datasets/adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
+$url = "https://api.druid.datalegend.net/datasets/Adamnet/all/services/endpoint/sparql?query=" . urlencode($sparqlquery) . "";
 
 $querylink = "https://druid.datalegend.net/AdamNet/all/sparql/endpoint#query=" . urlencode($sparqlquery) . "&endpoint=https%3A%2F%2Fdruid.datalegend.net%2F_api%2Fdatasets%2FAdamNet%2Fall%2Fservices%2Fendpoint%2Fsparql&requestMethod=POST&outputFormat=table";
 
 
 // Druid does not like url parameters, send accept header instead
 $opts = [
+    "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,
+    ),
     "http" => [
         "method" => "GET",
         "header" => "Accept: application/sparql-results+json\r\n"
